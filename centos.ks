@@ -75,6 +75,7 @@ poweroff
 @console-internet
 chrony
 cifs-utils
+yum-utils
 sudo
 python-pyasn1
 parted
@@ -83,7 +84,6 @@ hypervkvpd
 gdisk
 cloud-init
 cloud-utils-growpart
-azure-repo-svc
 -dracut-config-rescue
 
 # Packages required for ADE (Azure Disk Encryption) ...
