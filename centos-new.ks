@@ -73,12 +73,12 @@ sgdisk --typecode=15:EF00 /dev/sda
 
 %packages
 WALinuxAgent
-@^minimal-environment
-@standard
-#@container-tools
+@base
+@console-internet
 chrony
 sudo
 parted
+cifs-utils
 cloud-init
 cloud-utils-growpart
 -dracut-config-rescue
@@ -88,16 +88,14 @@ grub2-pc
 grub2-pc-modules 
 openssh-server
 kernel
-dnf-utils
+yum-utils
+hypervkvpd
 rng-tools
 cracklib
 cracklib-dicts
 centos-release
 bind-utils
 python3
-timedatex
-dhcp-client	# Explicit for CentOS 8.4
-efivar 		# Explicit for CentOS 8.4
 
 # pull firmware packages out
 -aic94xx-firmware
