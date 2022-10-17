@@ -1,7 +1,7 @@
 # Kickstart for provisioning a Almalinux 8.4 Azure VM
 
 # System authorization information
-auth --enableshadow --passalgo=sha512
+# auth --enableshadow --passalgo=sha512
 
 # Use graphical install
 text
@@ -72,15 +72,11 @@ sgdisk --typecode=15:EF00 /dev/sda
 %end
 
 %packages
-WALinuxAgent
-@^minimal-environment
-@standard
-#@container-tools
+
+@core
 chrony
 sudo
 parted
-cloud-init
-cloud-utils-growpart
 -dracut-config-rescue
 -postfix
 -NetworkManager-config-server
@@ -94,7 +90,6 @@ cracklib
 cracklib-dicts
 almalinux-release
 bind-utils
-python3
 timedatex
 dhcp-client	# Explicit for almalinux 8.4
 efivar 		# Explicit for almalinux 8.4
@@ -129,6 +124,10 @@ efivar 		# Explicit for almalinux 8.4
 -biosdevname
 -plymouth
 -iprutils
+-open-vm-tools
+-dnf-plugin-spacewalk
+-rhn*
+-iwl*-firmware
 
 gdisk
 
@@ -476,6 +475,7 @@ fi
 # Unset point release at the end of the post-install script so we can recreate a previous point release without current major version updates
 # sed -i -e 's/8.4.2105/$releasever/g' /etc/yum.repos.d/OpenLogicCentOS.repo
 # yum-config-manager --enable appstream baseos extras
+yum install -y WALinuxAgent cloud-init cloud-utils-growpart
 
 # Deprovision and prepare for Azure
 /usr/sbin/waagent -force -deprovision
