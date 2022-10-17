@@ -28,7 +28,7 @@ network --bootproto=dhcp
 rootpw --plaintext "to_be_disabled"
 
 # System services
-services --enabled="sshd,waagent,NetworkManager,systemd-resolved"
+services --enabled="sshd,NetworkManager,systemd-resolved"
 
 # System timezone
 timezone Etc/UTC --isUtc
@@ -89,7 +89,6 @@ rng-tools
 cracklib
 cracklib-dicts
 almalinux-release
-bind-utils
 timedatex
 dhcp-client	# Explicit for almalinux 8.4
 efivar 		# Explicit for almalinux 8.4
@@ -475,7 +474,10 @@ fi
 # Unset point release at the end of the post-install script so we can recreate a previous point release without current major version updates
 # sed -i -e 's/8.4.2105/$releasever/g' /etc/yum.repos.d/OpenLogicCentOS.repo
 # yum-config-manager --enable appstream baseos extras
-yum install -y WALinuxAgent cloud-init cloud-utils-growpart
+yum install -y cloud-init cloud-utils-growpart 
+yum install -y bind-utils
+yum install -y WALinuxAgent 
+systemctl enable waagent
 
 # Deprovision and prepare for Azure
 /usr/sbin/waagent -force -deprovision
