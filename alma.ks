@@ -19,9 +19,9 @@ lang en_US.UTF-8
 network --bootproto=dhcp
 
 # Use network installation
-url --url https://repo.almalinux.org/almalinux/8/BaseOS/x86_64/os/
-repo --name=BaseOS --baseurl=https://repo.almalinux.org/almalinux/8/BaseOS/x86_64/os/
-repo --name=AppStream --baseurl=https://repo.almalinux.org/almalinux/8/AppStream/x86_64/os/
+# url --url https://repo.almalinux.org/almalinux/8/BaseOS/x86_64/os/
+# repo --name=BaseOS --baseurl=https://repo.almalinux.org/almalinux/8/BaseOS/x86_64/os/
+# repo --name=AppStream --baseurl=https://repo.almalinux.org/almalinux/8/AppStream/x86_64/os/
 
 
 # Root password
@@ -146,8 +146,8 @@ usermod root -p '!!'
 # rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
 
 # Set OL repo and import OpenLogic public key
-# curl -so /etc/yum.repos.d/OpenLogicCentOS.repo https://raw.githubusercontent.com/openlogic/AzureBuildCentOS/master/config/azure/CentOS-Base-8.repo
-# curl -so /etc/yum.repos.d/OpenLogic.repo https://raw.githubusercontent.com/openlogic/AzureBuildCentOS/master/config/azure/OpenLogic.repo
+# curl -so /etc/yum.repos.d/BaseOS.repo https://repo.almalinux.org/almalinux/8/BaseOS/x86_64/os/
+# curl -so /etc/yum.repos.d/AppStream.repo https://repo.almalinux.org/almalinux/8/AppStream/x86_64/os/
 # curl -so /etc/pki/rpm-gpg/OpenLogic-GPG-KEY https://raw.githubusercontent.com/openlogic/AzureBuildCentOS/master/config/OpenLogic-GPG-KEY
 # rpm --import /etc/pki/rpm-gpg/OpenLogic-GPG-KEY
 
