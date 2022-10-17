@@ -19,7 +19,7 @@ lang en_US.UTF-8
 network --bootproto=dhcp
 
 # Use network installation
-url --url https://repo.almalinux.org/almalinux/8/BaseOS/x86_64/kickstart/
+url --url https://repo.almalinux.org/almalinux/8/BaseOS/x86_64/os/
 repo --name=BaseOS --baseurl=https://repo.almalinux.org/almalinux/8/BaseOS/x86_64/os/
 repo --name=AppStream --baseurl=https://repo.almalinux.org/almalinux/8/AppStream/x86_64/os/
 
